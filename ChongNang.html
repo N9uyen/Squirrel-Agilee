@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm Chống Nắng</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./image/logo.jpg" alt="Logo Hasaki">
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <form class="search-form" action="./search.html" method="get">
+                        <input type="text" name="q" placeholder="Tìm kiếm sản phẩm...">
+                        <button type="submit">Tìm kiếm</button>
+                    </form>
+                </li>
+                <li><a href="./Index.html">Trang chủ</a></li>
+                <li class="dropdown">
+                    <a href="./DanhMuc.html">Danh mục</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./Seo.html">Trị sẹo</a></li>
+                        <li><a href="./ChongNang.html">Chống nắng</a></li>
+                        <li><a href="./DuongAm.html">Dưỡng ẩm</a></li>
+                        <li><a href="./KemNen.html">Kem nền</a></li>
+                        <li><a href="./CheKhuyetDiem.html">Che khuyết điểm</a></li>
+                        <li><a href="./Phan.html">Phấn</a></li>
+                    </ul>
+                </li> 
+                <li><a href="./Giohang.html">Giỏ hàng</a></li>
+                <li id="login-register-links">
+                    <a href="./DangNhap.html">Đăng nhập</a>
+                    <a href="./DangKy.html">Đăng ký</a>
+                </li>
+                <li id="user-info" class="user-info" style="display: none;">
+                    <span id="user-name"></span>
+                    <a href="#" id="logout">Đăng xuất</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="product-list">
+        <h1 style="text-align:center;">Sản phẩm chống nắng</h1>
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="./image/sp6.jpg" alt="Kem chống nắng ANESSA">
+                <h3>Kem chống nắng ANESSA</h3>
+                <p>Giá: 600,000 VND</p>
+                <a href="./Sp6.html">Xem chi tiết</a>
+            </div>
+            <div class="product-item">
+                <img src="./image/sp7.jpg" alt="Kem chống nắng thảo mộc">
+                <h3>Kem chống nắng thảo mộc</h3>
+                <p>Giá: 700,000 VND</p>
+                <a href="./Sp7.html">Xem chi tiết</a>
+            </div>
+            <div class="product-item">
+                <img src="./image/sp12.jpg" alt="Kem chống nắng Hây Hây">
+                <h3>Kem chống nắng Hây Hây</h3>
+                <p>Giá: 200,000 VND</p>
+                <a href="./Sp12.html">Xem chi tiết</a>
+            </div>
+        </div>
+    </section>
+    <script>           
+    window.addEventListener('load', function() {
+            const loggedIn = localStorage.getItem('loggedIn');
+            const phone = localStorage.getItem('phone');
+            const userName = localStorage.getItem('userName');
+
+            if (loggedIn) {
+                document.getElementById('login-register-links').style.display = 'none';
+                const userInfo = document.getElementById('user-info');
+                userInfo.style.display = 'flex';
+                document.getElementById('user-name').textContent = ` ${userName || phone}`;
+
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }
+
+            document.getElementById('logout')?.addEventListener('click', function() {
+                localStorage.removeItem('loggedIn');
+                localStorage.removeItem('phone');
+                localStorage.removeItem('userName');
+
+                document.getElementById('login-register-links').style.display = 'block';
+                const userInfo = document.getElementById('user-info');
+                userInfo.style.display = 'none';
+
+                window.location.reload();
+            });
+        });
+    </script>
+
+
+    <footer>
+        <p></p>
+    </footer>
+</body>
+</html>
