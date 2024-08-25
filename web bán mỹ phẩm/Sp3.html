@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm - Kem nền trị mờ sẹo Contractubex</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .product-info {
+            display: flex;
+            align-items: flex-start;
+        }
+        .product-info img {
+            margin-right: 20px; 
+            width: 300px;
+            height: auto;
+        }
+        .product-description {
+            max-width: 600px; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./image/logo.jpg" alt="Logo Hasaki">
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <form class="search-form" action="./search.html" method="get">
+                        <input type="text" name="q" placeholder="Tìm kiếm sản phẩm...">
+                        <button type="submit">Tìm kiếm</button>
+                    </form>
+                </li>
+                <li><a href="./Index.html">Trang chủ</a></li>
+                <li class="dropdown">
+                    <a href="./DanhMuc.html">Danh mục</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./Seo.html">Trị sẹo</a></li>
+                        <li><a href="./ChongNang.html">Chống nắng</a></li>
+                        <li><a href="./DuongAm.html">Dưỡng ẩm</a></li>
+                        <li><a href="./KemNen.html">Kem nền</a></li>
+                        <li><a href="./CheKhuyetDiem.html">Che khuyết điểm</a></li>
+                        <li><a href="./Phan.html">Phấn</a></li>
+                    </ul>
+                </li>
+                <li><a href="./Giohang.html">Giỏ hàng</a></li>
+                <li id="login-register-links">
+                    <a href="./DangNhap.html">Đăng nhập</a>
+                    <a href="./DangKy.html">Đăng ký</a>
+                </li>
+                <li id="user-info" class="user-info" style="display: none;">
+                    <span id="user-name"></span>
+                    <a href="#" id="logout">Đăng xuất</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="product-detail">
+        <h1 style="text-align:center;">Kem nền trị mờ sẹo Contractubex</h1>
+        <div class="product-info">
+            <img src="./image/sp3.jpg" alt="Kem nền trị mờ sẹo Contractubex">
+            <div class="product-description">
+                <p><strong>Giá:</strong> <span id="product-price"></span></p>
+                <p>Kem nền trị mờ sẹo Contractubex giúp làm mờ sẹo, giảm thâm, tái tạo da hiệu quả.</p>
+                <p>Thành phẩn: <br>
+                    Trong 100g gel chứa:<br>
+                    •	Hoạt chất: Dịch chiết xuất hành tây 10g, Heparin natri 5000 I.U., Allantoin 1g.<br>
+                    •	Tá dược: Acid sorbic, Methyl-4-hydroxybenzoate, hương liệu Fragrance 231616, Xanthan gum, Polyethylene glycol 200, nước tinh khiết.<br>
+                </p>
+                <p>Hạn sử dụng: 48 tháng kể từ ngày sản xuất.</p>
+                <p>Nơi sản xuất: Đức</p>
+                <p>Cách dùng: <br>
+                    Bôi lên da hoặc các mô sẹo vài lần mỗi ngày và mát - xa nhẹ cho đến khi thuốc hoàn toàn thấm vào trong da. Trong trường hợp sẹo cũ và đã cứng, có thể bôi thuốc và băng vết sẹo bằng gạc thấm thuốc qua đêm.<br>
+                    Tùy theo kích cỡ sẹo và độ co cứng, việc điều trị sẽ cần vài tuần hay vài tháng. Đặc biệt, khi điều trị sẹo mới, tránh những kích thích cơ thể như quá lạnh, tia cực tím hay mát - xa quá mạnh.
+                    </p>
+                <p>Lưu ý: <br>
+                    - Thận trọng khi sử dụng<br>
+                    Contractubex chứa methyl-4-hydroxybenzoate, có thể gây dị ứng (có thể xuất hiện muộn). Contractubex chứa axit sorbic, có thể gây phản ứng tại chỗ ở vùng da có bôi thuốc, ví dụ như viêm da tiếp xúc.<br>
+                    - Thai kỳ và cho con bú<br>
+                    Cho đến nay chưa thấy có rủi ro trong thời kỳ mang thai và cho con bú.<br>
+                    - Tương tác thuốc<br>
+                    Cho đến nay chưa có bằng chứng nào về tương tác với các thuốc khác.<br>
+                </p>
+                <label for="quantity">Số lượng:</label>
+                <input type="number" id="quantity" value="1" min="1">
+                <button id="addToCart">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p></p>
+    </footer>
+
+    <script>
+        function formatCurrency(number) {
+            return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(number).replace("₫", "đ");
+        }
+
+        document.getElementById('product-price').textContent = formatCurrency(650000);
+
+        const addToCartButton = document.getElementById('addToCart');
+        const quantityInput = document.getElementById('quantity');
+
+        addToCartButton.addEventListener('click', () => {
+            const product = {
+                name: 'Kem nền trị mờ sẹo Contractubex',
+                price: 650000,
+                quantity: parseInt(quantityInput.value),
+                image: './image/sp3.jpg'
+            };
+
+            let cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+            const existingProduct = cart.find(item => item.name === product.name);
+
+            if (existingProduct) {
+                existingProduct.quantity += product.quantity;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Đã thêm vào giỏ hàng!');
+        });
+        window.addEventListener('load', function() {
+                const loggedIn = localStorage.getItem('loggedIn');
+                const phone = localStorage.getItem('phone');
+                const userName = localStorage.getItem('userName');
+    
+                if (loggedIn) {
+                    document.getElementById('login-register-links').style.display = 'none';
+                    const userInfo = document.getElementById('user-info');
+                    userInfo.style.display = 'flex';
+                    document.getElementById('user-name').textContent = ` ${userName || phone}`;
+    
+                    setTimeout(() => {
+                        messageDiv.style.display = 'none';
+                    }, 5000);
+                }
+    
+                document.getElementById('logout')?.addEventListener('click', function() {
+                    localStorage.removeItem('loggedIn');
+                    localStorage.removeItem('phone');
+                    localStorage.removeItem('userName');
+    
+                    document.getElementById('login-register-links').style.display = 'block';
+                    const userInfo = document.getElementById('user-info');
+                    userInfo.style.display = 'none';
+    
+                    window.location.reload();
+                });
+            });
+    </script>
+</body>
+</html>

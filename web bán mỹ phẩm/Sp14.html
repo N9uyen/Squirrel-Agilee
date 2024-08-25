@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm - Kem che khuyết điểm FOCALLURE</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .product-info {
+            display: flex;
+            align-items: flex-start;
+        }
+        .product-info img {
+            margin-right: 20px; 
+            width: 300px;
+            height: auto;
+        }
+        .product-description {
+            max-width: 600px; 
+        }
+        .product-images {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .product-images .thumbnail {
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        .product-images .thumbnail:hover {
+            border-color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./image/logo.jpg" alt="Logo Hasaki">
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <form class="search-form" action="./search.html" method="get">
+                        <input type="text" name="q" placeholder="Tìm kiếm sản phẩm...">
+                        <button type="submit">Tìm kiếm</button>
+                    </form>
+                </li>
+                <li><a href="./Index.html">Trang chủ</a></li>
+                <li class="dropdown">
+                    <a href="./DanhMuc.html">Danh mục</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./Seo.html">Trị sẹo</a></li>
+                        <li><a href="./ChongNang.html">Chống nắng</a></li>
+                        <li><a href="./DuongAm.html">Dưỡng ẩm</a></li>
+                        <li><a href="./KemNen.html">Kem nền</a></li>
+                        <li><a href="./CheKhuyetDiem.html">Che khuyết điểm</a></li>
+                        <li><a href="./Phan.html">Phấn</a></li>
+                    </ul>
+                </li>
+                <li><a href="./Giohang.html">Giỏ hàng</a></li>
+                <li id="login-register-links">
+                    <a href="./DangNhap.html">Đăng nhập</a>
+                    <a href="./DangKy.html">Đăng ký</a>
+                </li>
+                <li id="user-info" class="user-info" style="display: none;">
+                    <span id="user-name"></span>
+                    <a href="#" id="logout">Đăng xuất</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="product-detail">
+        <h1 style="text-align:center;">Kem che khuyết điểm FOCALLURE</h1>
+        <div class="product-info">
+            <img id="mainProductImage" src="./image/sp14.jpg" alt="Kem che khuyết điểm FOCALLURE">
+            <div class="product-description">
+                <p><strong>Giá:</strong> <span id="product-price"></span></p>
+                <p>Kem che khuyết điểm FOCALLURE giúp che khuyết điểm cho da hiệu quả.</p>
+                <p>Thành phẩn: WATER, PEG-30 DIPOLYHYDROXYSTEARATE, GLYCERYL STEARATE, MAGNESIUM STEARATE, SIMMONDSIA CHINENSIS (JOJOBA) BUTTER, CYCLOPENTASILOXANE, DIISOSTEARYL MALATE, TOCOPHEROL, PHENYL TRIMETHICONE, SODIUM HYALURONATE, PROPYLENE GLYCOL, ETHYLHEXYLGLYCERIN, AROMA.</p>
+                <p>Hạn sử dụng: 3 năm kể từ ngày sản xuất</p>
+                <p>Nơi sản xuất: Trung Quốc.</p>
+                <p>Cách dùng:<br>
+                    Dùng một lượng kem thích hợp lên vùng da có khuyết điểm.<br>
+                    Dùng ngón tay miết nhẹ, tán đều kem để tạo lớp che khuyết điểm mỏng mịn thật tự nhiên.<br>
+                    Có thể tán nhiều lớp để đạt đến hiệu quả che phủ bạn mong muốn.<br>
+                    Dùng phấn phủ lên để giữ lớp che khuyết điểm bền màu hơn.</p>
+                <p>Lưu ý bảo quản: Nơi thoáng mát, tránh ánh nắng trực tiếp.</p>    
+                <label for="productType">Chọn thể loại:</label>
+                <select id="productType">
+                    <option value="natural">#1 NETURAL</option>
+                    <option value="matte">#2 LIGHT CREAM</option>
+                    <option value="matte">#3 LIGHT</option>
+                    <option value="matte">#4 MEDIUM HONEY</option>
+                    <option value="matte">#5 TAN</option>
+                    <option value="matte">#6 WEATEN</option>
+                    <option value="matte">#7 DEEP</option>
+                </select>
+                <label for="quantity">Số lượng:</label>
+                <input type="number" id="quantity" value="1" min="1">
+                <button id="addToCart">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+        
+        <div class="product-images">
+            <img src="./image/sp14.jpg" alt="Kem nền Vacosi" class="thumbnail" onclick="changeMainImage(this)">
+            <img src="./image/sp14-2.jpg" alt="Kem nền Vacosi 2" class="thumbnail" onclick="changeMainImage(this)">
+        </div>
+    </section>
+    
+    <script>
+        function changeMainImage(element) {
+            document.getElementById('mainProductImage').src = element.src;
+        }
+
+        function formatCurrency(number) {
+            return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(number).replace("₫", "đ");
+        }
+
+        document.getElementById('product-price').textContent = formatCurrency(700000);
+
+        const addToCartButton = document.getElementById('addToCart');
+        const quantityInput = document.getElementById('quantity');
+        const productTypeSelect = document.getElementById('productType');
+
+        addToCartButton.addEventListener('click', () => {
+            const product = {
+                name: `Kem che khuyết điểm FOCALLURE - ${productTypeSelect.options[productTypeSelect.selectedIndex].text}`,
+                price: 700000,
+                quantity: parseInt(quantityInput.value),
+                image: document.getElementById('mainProductImage').src
+            };
+
+            let cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+            const existingProduct = cart.find(item => item.name === product.name);
+
+            if (existingProduct) {
+                existingProduct.quantity += product.quantity;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Đã thêm vào giỏ hàng!');
+        });
+        window.addEventListener('load', function() {
+                const loggedIn = localStorage.getItem('loggedIn');
+                const phone = localStorage.getItem('phone');
+                const userName = localStorage.getItem('userName');
+    
+                if (loggedIn) {
+                    document.getElementById('login-register-links').style.display = 'none';
+                    const userInfo = document.getElementById('user-info');
+                    userInfo.style.display = 'flex';
+                    document.getElementById('user-name').textContent = ` ${userName || phone}`;
+    
+                    setTimeout(() => {
+                        messageDiv.style.display = 'none';
+                    }, 5000);
+                }
+    
+                document.getElementById('logout')?.addEventListener('click', function() {
+                    localStorage.removeItem('loggedIn');
+                    localStorage.removeItem('phone');
+                    localStorage.removeItem('userName');
+    
+                    document.getElementById('login-register-links').style.display = 'block';
+                    const userInfo = document.getElementById('user-info');
+                    userInfo.style.display = 'none';
+    
+                    window.location.reload();
+                });
+            });
+    </script>
+    
+</body>
+</html>

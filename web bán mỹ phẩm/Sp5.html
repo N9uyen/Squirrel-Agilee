@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm - Kem trị sẹo Scar Esthetique</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .product-info {
+            display: flex;
+            align-items: flex-start;
+        }
+        .product-info img {
+            margin-right: 20px; 
+            width: 300px;
+            height: auto;
+        }
+        .product-description {
+            max-width: 600px; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./image/logo.jpg" alt="Logo Hasaki">
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <form class="search-form" action="./search.html" method="get">
+                        <input type="text" name="q" placeholder="Tìm kiếm sản phẩm...">
+                        <button type="submit">Tìm kiếm</button>
+                    </form>
+                </li>
+                <li><a href="./Index.html">Trang chủ</a></li>
+                <li class="dropdown">
+                    <a href="./DanhMuc.html">Danh mục</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./Seo.html">Trị sẹo</a></li>
+                        <li><a href="./ChongNang.html">Chống nắng</a></li>
+                        <li><a href="./DuongAm.html">Dưỡng ẩm</a></li>
+                        <li><a href="./KemNen.html">Kem nền</a></li>
+                        <li><a href="./CheKhuyetDiem.html">Che khuyết điểm</a></li>
+                        <li><a href="./Phan.html">Phấn</a></li>
+                    </ul>
+                </li>
+                <li><a href="./Giohang.html">Giỏ hàng</a></li>
+                <li id="login-register-links">
+                    <a href="./DangNhap.html">Đăng nhập</a>
+                    <a href="./DangKy.html">Đăng ký</a>
+                </li>
+                <li id="user-info" class="user-info" style="display: none;">
+                    <span id="user-name"></span>
+                    <a href="#" id="logout">Đăng xuất</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="product-detail">
+        <h1 style="text-align:center;">Kem trị sẹo Scar Esthetique</h1>
+        <div class="product-info">
+            <img src="./image/sp5.jpg" alt="Kem trị sẹo Scar Esthetique">
+            <div class="product-description">
+                <p><strong>Giá:</strong> <span id="product-price"></span></p>
+                <p>Kem trị sẹo Scar Esthetique giúp làm mờ sẹo, giảm thâm, tái tạo da hiệu quả.</p>
+                <p>Thành phẩn: <br>
+                    •	Chiết xuất củ hành tây, là nguồn cung cấp vitamin A, B, C giúp tăng sinh tế bào, điều hòa sự tăng sinh collagen trong tế bào da, thúc đẩy nhanh quá trình sửa chữa tổn thương và phục hồi của da; hỗ trợ kháng khuẩn và chống viêm.<br>
+                    •	Chiết xuất vỏ thông (Pinus pinaster bark extract) chứa thành phần Pycnogenol giúp cải thiện sự đàn hồi cho da chắc khỏe.<br>
+                    •	Chiết xuất hoa cúc (Callendula officinalis flower extract) giúp làm dịu da, giảm kích ứng, kháng khuẩn, kháng viêm.<br>
+                    •	Polypeptides + Coenzyme Q10, có khả năng chống oxy hóa mạnh, bổ sung năng lượng và giúp kích thích tăng sinh tế bào, giảm viêm và phục hồi nhanh hư tổn trên da, rút ngắn thời gian xóa mờ sẹo.<br>
+                    •	Chiết xuất hoa kim sa Montana (Arnica montana flower extract), kích thích lưu thông máu huyết, giảm sưng đỏ, giảm thâm, chống viêm và bầm tím hiệu quả, đồng thời tăng độ mềm mại cho da.<br>
+                    •	Chiết xuất hạt nho (Grape seed extract): chứa nhiều thành phần chống oxy hóa mạnh, chống lại stress oxy hóa, chống lại tổn thương và tình trạng viêm.<br>
+                    •	Glucosamine, giúp phục hồi các sợi collagen bị đứt gãy để nhanh chóng làm đầy sẹo rỗ, sẹo lõm.
+                </p>
+                <p>Hạn sử dụng: 3 năm kể từ ngày sản xuất</p>
+                <p>Nơi sản xuất: Mỹ</p>
+                <p>Cách dùng: <br>
+                    •	Làm sạch vùng da bị sẹo cần thoa kem bằng xà phòng và nước ấm, sau đó, lau khô.<br>
+                    •	Bóc lớp màng bọc tuýp kem, lấy một lượng kem vừa đủ ra ngón tay tùy vào kích thước vết sẹo.<br>
+                    •	Thoa đều kem lên vết sẹo đồng thời massage nhẹ nhàng theo chuyển động tròn trong khoảng 3 – 5 phút để dưỡng chất thẩm thấu sâu vào da.<br>
+                    •	Mỗi ngày nên thoa kem 3 – 4 lần để đạt hiệu quả như mong muốn.
+                </p>
+                <p>Lưu ý: <br>
+                    • Không sử dụng thuốc cho vết thương hở<br>
+                    • Tránh để kem sẹo tiếp xúc với mắt và niêm mạc<br>
+                    • Theo dõi và kiểm tra dị ứng<br>
+                    • Khi sử dụng với các sản phẩm khácScar Esthetique có thể được sử dụng kết hợp với các sản phẩm chăm sóc da khác, nhưng cần tránh sử dụng cùng lúc với các sản phẩm có chứa các chất kích ứng mạnh như retinoids hoặc axit hydroxy.<br>
+                    • Tránh để Scar Esthetique tiếp xúc với ánh nắng mặt trời
+                </p>
+                <label for="quantity">Số lượng:</label>
+                <input type="number" id="quantity" value="1" min="1">
+                <button id="addToCart">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p></p>
+    </footer>
+
+    <script>
+        function formatCurrency(number) {
+            return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(number).replace("₫", "đ");
+        }
+
+        document.getElementById('product-price').textContent = formatCurrency(750000);
+
+        const addToCartButton = document.getElementById('addToCart');
+        const quantityInput = document.getElementById('quantity');
+
+        addToCartButton.addEventListener('click', () => {
+            const product = {
+                name: 'Kem trị sẹo Scar Esthetique',
+                price: 750000,
+                quantity: parseInt(quantityInput.value),
+                image: './image/sp5.jpg'
+            };
+
+            let cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+            const existingProduct = cart.find(item => item.name === product.name);
+
+            if (existingProduct) {
+                existingProduct.quantity += product.quantity;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Đã thêm vào giỏ hàng!');
+        });
+        window.addEventListener('load', function() {
+                const loggedIn = localStorage.getItem('loggedIn');
+                const phone = localStorage.getItem('phone');
+                const userName = localStorage.getItem('userName');
+    
+                if (loggedIn) {
+                    document.getElementById('login-register-links').style.display = 'none';
+                    const userInfo = document.getElementById('user-info');
+                    userInfo.style.display = 'flex';
+                    document.getElementById('user-name').textContent = ` ${userName || phone}`;
+    
+                    setTimeout(() => {
+                        messageDiv.style.display = 'none';
+                    }, 5000);
+                }
+    
+                document.getElementById('logout')?.addEventListener('click', function() {
+                    localStorage.removeItem('loggedIn');
+                    localStorage.removeItem('phone');
+                    localStorage.removeItem('userName');
+    
+                    document.getElementById('login-register-links').style.display = 'block';
+                    const userInfo = document.getElementById('user-info');
+                    userInfo.style.display = 'none';
+    
+                    window.location.reload();
+                });
+            });
+    </script>
+</body>
+</html>

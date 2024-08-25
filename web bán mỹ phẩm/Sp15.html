@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm - Bảng Che Khuyết Điểm Judydoll 3 Màu - 01 Che Phủ Cao </title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .product-info {
+            display: flex;
+            align-items: flex-start;
+        }
+        .product-info img {
+            margin-right: 20px; 
+            width: 300px;
+            height: auto;
+        }
+        .product-description {
+            max-width: 600px; 
+        }
+        .product-images {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .product-images .thumbnail {
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        .product-images .thumbnail:hover {
+            border-color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./image/logo.jpg" alt="Logo Hasaki">
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <form class="search-form" action="./search.html" method="get">
+                        <input type="text" name="q" placeholder="Tìm kiếm sản phẩm...">
+                        <button type="submit">Tìm kiếm</button>
+                    </form>
+                </li>
+                <li><a href="./Index.html">Trang chủ</a></li>
+                <li class="dropdown">
+                    <a href="./DanhMuc.html">Danh mục</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./Seo.html">Trị sẹo</a></li>
+                        <li><a href="./ChongNang.html">Chống nắng</a></li>
+                        <li><a href="./DuongAm.html">Dưỡng ẩm</a></li>
+                        <li><a href="./KemNen.html">Kem nền</a></li>
+                        <li><a href="./CheKhuyetDiem.html">Che khuyết điểm</a></li>
+                        <li><a href="./Phan.html">Phấn</a></li>
+                    </ul>
+                </li>
+                <li><a href="./Giohang.html">Giỏ hàng</a></li>
+                <li id="login-register-links">
+                    <a href="./DangNhap.html">Đăng nhập</a>
+                    <a href="./DangKy.html">Đăng ký</a>
+                </li>
+                <li id="user-info" class="user-info" style="display: none;">
+                    <span id="user-name"></span>
+                    <a href="#" id="logout">Đăng xuất</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="product-detail">
+        <h1 style="text-align:center;">Bảng Che Khuyết Điểm Judydoll 3 Màu - 01 Che Phủ Cao </h1>
+        <div class="product-info">
+            <img id="mainProductImage" src="./image/sp15.jpg" alt="Bảng Che Khuyết Điểm Judydoll 3 Màu - 01 Che Phủ Cao ">
+            <div class="product-description">
+                <p><strong>Giá:</strong> <span id="product-price"></span></p>
+                <p>Bảng Che Khuyết Điểm Judydoll 3 Màu - 01 Che Phủ Cao giúp che khuyết điểm cho da hiệu quả.</p>
+                <p>Thành phẩn: Triethylhexanoin, Dimethicone, Dipentaerythrityl Hexahydroxystearate/Hexastearate/Hexarosinate, Diisostearyl Malate, Microcrystalline Wax, Caprylic/Capric Triglyceride, Silica, Mica, Methyl Methacrylate Crosspolymer, Sorbitan Olivate, Dimethicone Crosspolymer, Synthetic Wax, Sorbitan Sesquioleate, Aluminum Hydroxide, Stearalkonium Hectorite, Sorbitan Isostearate, 1,2-Hexanediol, Ethylene/Propylene Copolymer, Polyhydroxystearic Acid, Propylene Carbonate, Tocopheryl Acetate, Caprylyl Glycol, Triethoxycaprylylsilane, Ethylhexyl Palmitate, Isopropyl Myristate, Isostearic Acid, Lecithin, Ethylhexylglycerin, C18-36 Acid Triglyceride, Polyglyceryl-3 Polyricinoleate, Jojoba Esters, C12-18 Acid Triglyceride, Squalene, Phytosteryl Macadamiate, Phytosterols, Tocopherol, BHT, CI 77891, CI 77492, CI 77491, CI 77499, CI 19140.</p>
+                <p>Hạn sử dụng: 2 năm kể từ ngày sản xuất</p>
+                <p>Nơi sản xuất: Trung Quốc.</p>
+                <p>Cách dùng:<br>
+                    •	Chấm một lượng kem thích hợp lên vùng da có khuyết điểm.<br>
+                    •	Dùng đầu ngón tay để thoa nhẹ hoặc dùng chổi để tán kem. Có thể tán nhiều lớp để đạt hiệu quả che phủ mong muốn.<br>
+                    •	Để che quầng thâm mắt, chọn màu sáng hơn hoặc giống với tone da.
+                </p>
+                <p>Lưu ý bảo quản:<br>
+                    •	Nơi khô ráo, thoáng mát.<br>
+                    •	Tránh ánh nắng trực tiếp, nơi có nhiệt độ cao hoặc ẩm ướt.<br>
+                    •	Đậy nắp kín sau khi sử dụng.
+                </p>    
+                <label for="productType">Chọn thể loại:</label>
+                <select id="productType">
+                    <option value="natural">Bảng 1</option>
+                    <option value="matte">Bảng 2</option>
+                </select>
+                <label for="quantity">Số lượng:</label>
+                <input type="number" id="quantity" value="1" min="1">
+                <button id="addToCart">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+        
+        <div class="product-images">
+            <img src="./image/sp15.jpg" alt="Kem nền Vacosi" class="thumbnail" onclick="changeMainImage(this)">
+            <img src="./image/sp15-2.jpg" alt="Kem nền Vacosi 2" class="thumbnail" onclick="changeMainImage(this)">
+        </div>
+    </section>
+    
+    <script>
+        function changeMainImage(element) {
+            document.getElementById('mainProductImage').src = element.src;
+        }
+
+        function formatCurrency(number) {
+            return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(number).replace("₫", "đ");
+        }
+
+        document.getElementById('product-price').textContent = formatCurrency(750000);
+
+        const addToCartButton = document.getElementById('addToCart');
+        const quantityInput = document.getElementById('quantity');
+        const productTypeSelect = document.getElementById('productType');
+
+        addToCartButton.addEventListener('click', () => {
+            const product = {
+                name: `Bảng Che Khuyết Điểm Judydoll 3 Màu - 01 Che Phủ Cao  - ${productTypeSelect.options[productTypeSelect.selectedIndex].text}`,
+                price: 750000,
+                quantity: parseInt(quantityInput.value),
+                image: document.getElementById('mainProductImage').src
+            };
+
+            let cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+            const existingProduct = cart.find(item => item.name === product.name);
+
+            if (existingProduct) {
+                existingProduct.quantity += product.quantity;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Đã thêm vào giỏ hàng!');
+        });
+        window.addEventListener('load', function() {
+                const loggedIn = localStorage.getItem('loggedIn');
+                const phone = localStorage.getItem('phone');
+                const userName = localStorage.getItem('userName');
+    
+                if (loggedIn) {
+                    document.getElementById('login-register-links').style.display = 'none';
+                    const userInfo = document.getElementById('user-info');
+                    userInfo.style.display = 'flex';
+                    document.getElementById('user-name').textContent = ` ${userName || phone}`;
+    
+                    setTimeout(() => {
+                        messageDiv.style.display = 'none';
+                    }, 5000);
+                }
+    
+                document.getElementById('logout')?.addEventListener('click', function() {
+                    localStorage.removeItem('loggedIn');
+                    localStorage.removeItem('phone');
+                    localStorage.removeItem('userName');
+    
+                    document.getElementById('login-register-links').style.display = 'block';
+                    const userInfo = document.getElementById('user-info');
+                    userInfo.style.display = 'none';
+    
+                    window.location.reload();
+                });
+            });
+    </script>
+    
+</body>
+</html>

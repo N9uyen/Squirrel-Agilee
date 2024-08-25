@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm - Kem chống nắng thảo mộc</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .product-info {
+            display: flex;
+            align-items: flex-start;
+        }
+        .product-info img {
+            margin-right: 20px; 
+            width: 300px;
+            height: auto;
+        }
+        .product-description {
+            max-width: 600px; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./image/logo.jpg" alt="Logo Hasaki">
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <form class="search-form" action="./search.html" method="get">
+                        <input type="text" name="q" placeholder="Tìm kiếm sản phẩm...">
+                        <button type="submit">Tìm kiếm</button>
+                    </form>
+                </li>
+                <li><a href="./Index.html">Trang chủ</a></li>
+                <li class="dropdown">
+                    <a href="./DanhMuc.html">Danh mục</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./Seo.html">Trị sẹo</a></li>
+                        <li><a href="./ChongNang.html">Chống nắng</a></li>
+                        <li><a href="./DuongAm.html">Dưỡng ẩm</a></li>
+                        <li><a href="./KemNen.html">Kem nền</a></li>
+                        <li><a href="./CheKhuyetDiem.html">Che khuyết điểm</a></li>
+                        <li><a href="./Phan.html">Phấn</a></li>
+                    </ul>
+                </li>
+                <li><a href="./Giohang.html">Giỏ hàng</a></li>
+                <li id="login-register-links">
+                    <a href="./DangNhap.html">Đăng nhập</a>
+                    <a href="./DangKy.html">Đăng ký</a>
+                </li>
+                <li id="user-info" class="user-info" style="display: none;">
+                    <span id="user-name"></span>
+                    <a href="#" id="logout">Đăng xuất</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="product-detail">
+        <h1 style="text-align:center;">Kem chống nắng thảo mộc</h1>
+        <div class="product-info">
+            <img src="./image/sp7.jpg" alt="Kem chống nắng thảo mộc">
+            <div class="product-description">
+                <p><strong>Giá:</strong> <span id="product-price"></span></p>
+                <p>Kem chống nắng thảo mộc giúp chống nắng hiệu quả.</p>
+                <p>Thành phẩn: Nước tinh khiết, Dầu Bơ, Dầu Hạnh Nhân, Dầu Oliu, Dầu Carot, Titanium Dioxide, Kẽm Oxide, Coenzyme Q10 (tinh chất chống lão hóa hiệu quả), Propylen Glycol, Phenoxyethanol, Lunamer 42 CLT, Tinh dầu phong lữ</p>
+                <p>Hạn sử dụng: 24 tháng. Sau khi mở nắp: 6 tháng</p>
+                <p>Nơi sản xuất: Việt Nam</p>
+                <p>Cách dùng: <br>
+                    - Dùng 1 lượng kem vừa đủ và chia đều trên mặt và cổ, sau đó thoa đều nhẹ nhàng khắp mặt và cổ. <br> 
+                    - Sử dụng vào ban ngày, trước khi ra nắng 30 phút, sau các bước dưỡng da thông thường. <br>
+                </p>
+                <p>Lưu ý: bảo quản nơi khô mát, tránh nắng nóng và nguồn nhiệt.</p>
+                <label for="quantity">Số lượng:</label>
+                <input type="number" id="quantity" value="1" min="1">
+                <button id="addToCart">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p></p>
+    </footer>
+
+    <script>
+        function formatCurrency(number) {
+            return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(number).replace("₫", "đ");
+        }
+
+        document.getElementById('product-price').textContent = formatCurrency(700000);
+
+        const addToCartButton = document.getElementById('addToCart');
+        const quantityInput = document.getElementById('quantity');
+
+        addToCartButton.addEventListener('click', () => {
+            const product = {
+                name: 'Kem chống nắng thảo mộc',
+                price: 700000,
+                quantity: parseInt(quantityInput.value),
+                image: './image/sp7.jpg'
+            };
+
+            let cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+            const existingProduct = cart.find(item => item.name === product.name);
+
+            if (existingProduct) {
+                existingProduct.quantity += product.quantity;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Đã thêm vào giỏ hàng!');
+        });
+        window.addEventListener('load', function() {
+                const loggedIn = localStorage.getItem('loggedIn');
+                const phone = localStorage.getItem('phone');
+                const userName = localStorage.getItem('userName');
+    
+                if (loggedIn) {
+                    document.getElementById('login-register-links').style.display = 'none';
+                    const userInfo = document.getElementById('user-info');
+                    userInfo.style.display = 'flex';
+                    document.getElementById('user-name').textContent = ` ${userName || phone}`;
+    
+                    setTimeout(() => {
+                        messageDiv.style.display = 'none';
+                    }, 5000);
+                }
+    
+                document.getElementById('logout')?.addEventListener('click', function() {
+                    localStorage.removeItem('loggedIn');
+                    localStorage.removeItem('phone');
+                    localStorage.removeItem('userName');
+    
+                    document.getElementById('login-register-links').style.display = 'block';
+                    const userInfo = document.getElementById('user-info');
+                    userInfo.style.display = 'none';
+    
+                    window.location.reload();
+                });
+            });
+    </script>
+</body>
+</html>

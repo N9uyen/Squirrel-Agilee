@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm - Kem trị sẹo Klirvin Nga</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .product-info {
+            display: flex;
+            align-items: flex-start;
+        }
+        .product-info img {
+            margin-right: 20px; 
+            width: 300px;
+            height: auto;
+        }
+        .product-description {
+            max-width: 600px; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./image/logo.jpg" alt="Logo Hasaki">
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <form class="search-form" action="./search.html" method="get">
+                        <input type="text" name="q" placeholder="Tìm kiếm sản phẩm...">
+                        <button type="submit">Tìm kiếm</button>
+                    </form>
+                </li>
+                <li><a href="./Index.html">Trang chủ</a></li>
+                <li class="dropdown">
+                    <a href="./DanhMuc.html">Danh mục</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./Seo.html">Trị sẹo</a></li>
+                        <li><a href="./ChongNang.html">Chống nắng</a></li>
+                        <li><a href="./DuongAm.html">Dưỡng ẩm</a></li>
+                        <li><a href="./KemNen.html">Kem nền</a></li>
+                        <li><a href="./CheKhuyetDiem.html">Che khuyết điểm</a></li>
+                        <li><a href="./Phan.html">Phấn</a></li>
+                    </ul>
+                </li>
+                <li><a href="./Giohang.html">Giỏ hàng</a></li>
+                <li id="login-register-links">
+                    <a href="./DangNhap.html">Đăng nhập</a>
+                    <a href="./DangKy.html">Đăng ký</a>
+                </li>
+                <li id="user-info" class="user-info" style="display: none;">
+                    <span id="user-name"></span>
+                    <a href="#" id="logout">Đăng xuất</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="product-detail">
+        <h1 style="text-align:center;">Kem trị sẹo Klirvin Nga</h1>
+        <div class="product-info">
+            <img src="./image/sp2.jpg" alt="Kem trị sẹo Klirvin Nga">
+            <div class="product-description">
+                <p><strong>Giá:</strong> <span id="product-price"></span></p>
+                <p>Kem trị sẹo Klirvin Nga giúp làm mờ sẹo, giảm thâm, tái tạo da hiệu quả.</p>
+                <p>Thành phẩn:<br>
+                    Margoza, cây thiên thảo(Rubia Tinctorum), dược liệu embliki, Vacha (Thảo dược Acorus Calamus Buch Acorus Calamus gốc) và cây sầu đâu, sầu đông, cây thuốc trị bá chứng (Melia Azadirachata )., lodhra, madder lá hình tim, Khaifeng và lô hội, chế xuất trong dầu mè, hương nhu, nghệ, borax, chất tạo kem, sáp ong, маргоза.<br>
+                    ● Tankan Bhasma và yashada Bhasma là 2 thành phần giúp làm se liền các vết sẹo, bảo vệ chống lại các loại tia mặt trời có hại.<br>
+                    ● Nghệ ngoài công dụng  diệt khuẩn còn ức chế sự phát triển của chúng gây ra mụ trên da.<br>
+                    ●Vaccha giúp ngăn ngừa sự tích tụ của bã nhờn, làm lành da sau khi nặn sạch mụn trứng cá và mụn nhọt.<br>
+                    ● Lodhra có công dụng chống viêm và làm dịu, làm cho da đàn hồi hơn, se khít lỗ chân lông và giúp cung cấp cho da một cái nhìn khỏe mạnh.<br>
+                    ●Madzhishta Tulsi giúp cải thiện vi tuần hoàn chất lỏng, góp phần giảm độc tố.<br>
+                    ● Lô hội, kết hợp với Yashada Bhasma giúp nuôi dưỡng và tác dụng giữ ẩm.<br>
+                    ● Dầu vừng và sáp ong có tác dụng tích cực trên lớp dưới da.
+                </p>
+                <p>Hạn sử dụng: 3 năm kể ngày sản xuất</p>
+                <p>Nơi sản xuất: Nga</p>
+                <p>Cách dùng: <br>
+                    - Sử dụng hai lần một ngày, vào buổi sáng và tối trước khi đi ngủ, thoa vào các khu vực có vấn đề  của da và cẩn thận xoa bóp cho đến khi hấp thu hoàn toàn. <br>
+                    - Lưu ý, nên làm sạch da trước khi áp dụng kem nhé!<br>
+                    - Để đạt được kết quả tích cực của nó được khuyến khích để dùng hàng ngày. Thời gian kem phụ thuộc vào độ tuổi và tình trạng của làn da.<br>
+                    </p>
+                <p>Lưu ý: <br>
+                    - Trong hầu hết trường hợp, kết quả dương tính được quan sát trong một khoảng thời gian từ 4-6 tuần.<br>
+                    - Khi kéo dài được khuyến cáo để sử dụng kem về vấn đề khu vực mát xa cho đến khi được hấp thu hoàn toàn.<br>
+                    - Đối với việc làm lành những vết rạn da kem nên sử dụng liên tục trong 3 tháng.<br>
+                    - Để hiệu quả đạt được bạn nên dùng tối thiểu là 2 tuýp.<br>
+                    - Sản phẩm được chiết xuất từ thảo dược nên an toàn cả cho phụ nữ mang thai và cho con bú.<br>
+                </p>
+                <label for="quantity">Số lượng:</label>
+                <input type="number" id="quantity" value="1" min="1">
+                <button id="addToCart">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p></p>
+    </footer>
+
+    <script>
+        function formatCurrency(number) {
+            return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(number).replace("₫", "đ");
+        }
+
+        document.getElementById('product-price').textContent = formatCurrency(600000);
+
+        const addToCartButton = document.getElementById('addToCart');
+        const quantityInput = document.getElementById('quantity');
+
+        addToCartButton.addEventListener('click', () => {
+            const product = {
+                name: 'Kem trị sẹo Klirvin Nga',
+                price: 600000,
+                quantity: parseInt(quantityInput.value),
+                image: './image/sp2.jpg'
+            };
+
+            let cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+            const existingProduct = cart.find(item => item.name === product.name);
+
+            if (existingProduct) {
+                existingProduct.quantity += product.quantity;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Đã thêm vào giỏ hàng!');
+        });
+        window.addEventListener('load', function() {
+                const loggedIn = localStorage.getItem('loggedIn');
+                const phone = localStorage.getItem('phone');
+                const userName = localStorage.getItem('userName');
+    
+                if (loggedIn) {
+                    document.getElementById('login-register-links').style.display = 'none';
+                    const userInfo = document.getElementById('user-info');
+                    userInfo.style.display = 'flex';
+                    document.getElementById('user-name').textContent = ` ${userName || phone}`;
+    
+                    setTimeout(() => {
+                        messageDiv.style.display = 'none';
+                    }, 5000);
+                }
+    
+                document.getElementById('logout')?.addEventListener('click', function() {
+                    localStorage.removeItem('loggedIn');
+                    localStorage.removeItem('phone');
+                    localStorage.removeItem('userName');
+    
+                    document.getElementById('login-register-links').style.display = 'block';
+                    const userInfo = document.getElementById('user-info');
+                    userInfo.style.display = 'none';
+    
+                    window.location.reload();
+                });
+            });
+    </script>
+</body>
+</html>
