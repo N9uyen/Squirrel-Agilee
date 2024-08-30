@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả tìm kiếm</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./image/logo.jpg" alt="Logo Hasaki">
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <form class="search-form" action="./search.html" method="get">
+                        <input type="text" name="q" placeholder="Tìm kiếm sản phẩm...">
+                        <button type="submit">Tìm kiếm</button>
+                    </form>
+                </li>
+                <li><a href="./Index.html">Trang chủ</a></li>
+                <li class="dropdown">
+                    <a href="./DanhMuc.html">Danh mục</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./Seo.html">Trị sẹo</a></li>
+                        <li><a href="./ChongNang.html">Chống nắng</a></li>
+                        <li><a href="./DuongAm.html">Dưỡng ẩm</a></li>
+                        <li><a href="./KemNen.html">Kem nền</a></li>
+                        <li><a href="./CheKhuyetDiem.html">Che khuyết điểm</a></li>
+                        <li><a href="./Phan.html">Phấn</a></li>
+                    </ul>
+                </li> 
+                <li><a href="./Giohang.html">Giỏ hàng</a></li>
+                <li id="login-register-links">
+                    <a href="./DangNhap.html">Đăng nhập</a>
+                    <a href="./DangKy.html">Đăng ký</a>
+                </li>
+                <li id="user-info" class="user-info" style="display: none;">
+                    <span id="user-name"></span>
+                    <a href="#" id="logout">Đăng xuất</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="search-results">
+        <h1 style="text-align:center;">Kết quả tìm kiếm</h1>
+        <hr>
+        <div id="results" class="product-grid"></div>
+    </section>
+
+    <footer>
+        <p></p>
+    </footer>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const query = params.get('q');
+
+        const products = [
+            {name: "Kem nghệ trị sẹo NeoCurma", price: "500,000 VND", image: "./image/sp1.jpg", link: "./Sp1.html"},
+            {name: "Kem trị sẹo Klirvin Nga", price: "600,000 VND", image: "./image/sp2.jpg", link: "./Sp2.html"},
+            {name: "Kem nền trị mờ sẹo Contractubex", price: "650,000 VND", image: "./image/sp3.jpg", link: "./Sp3.html"},
+            {name: "Keo nền ngâm mờ vết sẹo derma forte alcom", price: "700,000 VND", image: "./image/sp4.jpg", link: "./Sp4.html"},
+            {name: "Kem trị sẹo Scar Esthetique", price: "750,000 VND", image: "./image/sp5.jpg", link: "./Sp5.html"},
+            {name: "Kem chống nắng ANESSA", price: "600,000 VND", image: "./image/sp6.jpg", link: "./Sp6.html"},
+            {name: "Kem chống nắng thảo mộc", price: "700,000 VND", image: "./image/sp7.jpg", link: "./Sp7.html"},
+            {name: "Kem chống nắng Hây Hây", price: "200,000 VND", image: "./image/sp12.jpg", link: "./Sp12.html"},
+            {name: "Kem dưỡng ẩm Hada Labo", price: "600,000 VND", image: "./image/sp8.jpg", link: "./Sp8.html"},
+            {name: "Kem dưỡng ẩm da mặt ban ngày ZO® Skin Health", price: "700,000 VND", image: "./image/sp9.jpg", link: "./Sp9.html"},
+            {name: "Kem Dưỡng Ẩm Shiseido Essential Energy Hydrating Cream", price: "800,000 VND", image: "./image/sp10.jpg", link: "./Sp10.html"},
+            {name: "Kem nền Bobbi Brown", price: "210,000 VND", image: "./image/sp11.jpg", link: "./Sp11.html"},
+            {name: "Kem nền Vacosi", price: "200,000 VND", image: "./image/sp13.jpg", link: "./Sp13.html"},
+            {name: "Kem che khuyết điểm FOCALLURE", price: "700,000 VND", image: "./image/sp14.jpg", link: "./Sp14.html"}
+        ];
+
+        const resultsContainer = document.getElementById('results');
+        const filteredProducts = products.filter(product => product.name.toLowerCase().includes(query.toLowerCase()));
+
+        if (filteredProducts.length > 0) {
+            filteredProducts.forEach(product => {
+                const productElement = `
+                    <div class="product-item">
+                        <img src="${product.image}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <p>Giá: ${product.price}</p>
+                        <a href="${product.link}">Xem chi tiết</a>
+                    </div>
+                `;
+                resultsContainer.innerHTML += productElement;
+            });
+        } else {
+            resultsContainer.innerHTML = `<p style="text-align:center;">Không tìm thấy sản phẩm nào phù hợp với từ khoá "${query}".</p>`;
+        }
+        window.addEventListener('load', function() {
+                const loggedIn = localStorage.getItem('loggedIn');
+                const phone = localStorage.getItem('phone');
+                const userName = localStorage.getItem('userName');
+    
+                if (loggedIn) {
+                    document.getElementById('login-register-links').style.display = 'none';
+                    const userInfo = document.getElementById('user-info');
+                    userInfo.style.display = 'flex';
+                    document.getElementById('user-name').textContent = ` ${userName || phone}`;
+    
+                    setTimeout(() => {
+                        messageDiv.style.display = 'none';
+                    }, 5000);
+                }
+    
+                document.getElementById('logout')?.addEventListener('click', function() {
+                    localStorage.removeItem('loggedIn');
+                    localStorage.removeItem('phone');
+                    localStorage.removeItem('userName');
+    
+                    document.getElementById('login-register-links').style.display = 'block';
+                    const userInfo = document.getElementById('user-info');
+                    userInfo.style.display = 'none';
+    
+                    window.location.reload();
+                });
+            });
+    </script>
+</body>
+</html>
