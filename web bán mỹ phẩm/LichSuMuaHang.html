@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch Sử Mua Hàng</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .purchase-history {
+            margin: 2rem;
+        }
+        .purchase-item {
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+        }
+        .purchase-item:last-child {
+            border-bottom: none;
+        }
+        .purchase-item img {
+            width: 100px;
+            height: auto;
+            margin-right: 1rem;
+        }
+        .purchase-item-details {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .purchase-item-details p {
+            margin: 0;
+        }
+        .purchase-item-details .item-name {
+            font-weight: bold;
+        }
+        .purchase-item-details .item-price {
+            margin-left: 1rem;
+        }
+        .not-logged-in {
+            margin: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./image/logo.jpg" alt="Logo Hasaki">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./Index.html">Trang chủ</a></li>
+                <li><a href="./Giohang.html">Giỏ hàng</a></li>
+                <li><a href="./LichSuMuaHang.html">Lịch sử mua hàng</a></li>
+                <li id="login-register-links">
+                    <a href="./DangNhap.html">Đăng nhập</a>
+                    <a href="./DangKy.html">Đăng ký</a>
+                </li>
+                <li id="user-info" class="user-info" style="display: none;">
+                    <span id="user-name"></span>
+                    <a href="#" id="logout">Đăng xuất</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="historySection" class="purchase-history">
+        <h1 style="text-align: center;">Lịch Sử Mua Hàng</h1>
+        <div id="historyItems"></div>
+        <div id="notLoggedIn" class="not-logged-in" style="display: none;">
+            <p>Bạn cần đăng nhập để xem lịch sử mua hàng. <a href="./DangNhap.html">Đăng nhập ngay</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p></p>
+    </footer>
+
+    <script>
+        function formatCurrency(number) {
+            return new Intl.NumberFormat('vi-VN').format(number);
+        }
+
+        function displayHistory() {
+            const historyItems = document.getElementById('historyItems');
+            const notLoggedIn = document.getElementById('notLoggedIn');
+            const userHistory = JSON.parse(localStorage.getItem('userHistory')) || [];
+
+            if (!localStorage.getItem('loggedIn')) {
+                document.getElementById('historySection').style.display = 'none';
+                notLoggedIn.style.display = 'block';
+                return;
+            }
+
+            historyItems.innerHTML = '';
+
+            if (userHistory.length === 0) {
+                historyItems.innerHTML = '<p>Chưa có lịch sử mua hàng.</p>';
+                return;
+            }
+
+            userHistory.forEach((purchase) => {
+                const purchaseDiv = document.createElement('div');
+                purchaseDiv.className = 'purchase-item';
+                purchaseDiv.innerHTML = `
+                    <h2>Mua hàng vào: ${purchase.date}</h2>
+                    <p><strong>Tổng cộng:</strong> ${formatCurrency(purchase.total)} VND</p>
+                    ${purchase.items.map(item => `
+                        <div class="purchase-item-details">
+                            <div>
+                                <img src="${item.image}" alt="${item.name}">
+                                <p class="item-name">${item.name}</p>
+                            </div>
+                            <p class="item-price">${formatCurrency(item.price)} VND x ${item.quantity}</p>
+                        </div>
+                    `).join('')}
+                `;
+                historyItems.appendChild(purchaseDiv);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', displayHistory);
+
+        window.addEventListener('load', function() {
+            const loggedIn = localStorage.getItem('loggedIn');
+            const phone = localStorage.getItem('phone');
+            const userName = localStorage.getItem('userName');
+
+            if (loggedIn) {
+                document.getElementById('login-register-links').style.display = 'none';
+                const userInfo = document.getElementById('user-info');
+                userInfo.style.display = 'flex';
+                document.getElementById('user-name').textContent = ` ${userName || phone}`;
+
+                document.getElementById('logout')?.addEventListener('click', function() {
+                    localStorage.removeItem('loggedIn');
+                    localStorage.removeItem('phone');
+                    localStorage.removeItem('userName');
+                    document.getElementById('login-register-links').style.display = 'block';
+                    const userInfo = document.getElementById('user-info');
+                    userInfo.style.display = 'none';
+                    window.location.reload();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
